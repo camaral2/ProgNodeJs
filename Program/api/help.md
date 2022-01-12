@@ -43,3 +43,5 @@ https://www.youtube.com/watch?v=TcN9SNhwZiA
 Curso completo NodeJs
 https://www.youtube.com/channel/UCqmJGTdcMIRXOZuukHZ8TqA
 
+Injeção de Dependência em NodeJS (TypeScript)
+https://www.youtube.com/watch?v=oI81d5VjiV4
