@@ -21,10 +21,26 @@
     "sourceMap": true,
     "outDir": "build",
     "baseUrl": ".",
+    //"paths": {
+    //  "*": ["node_modules/*", "src/types/*"]
+    //}
     "paths": {
-      "*": ["node_modules/*", "src/types/*"]
-    }
+      "@src/*": ["./src/*"],
+      "@tests/*": ["./tests/*"]
+    },
+    "rootDirs": [
+      "./src",
+      "./tests"
+    ],
   },
-  //"include": ["src/**/*"],
-  "exclude": [".templates", ".openAPI"]
+  "include": [
+    "./src/**/*.ts",
+    "./tests/**/*.ts"
+  ],
+  "exclude": [
+    "./node_modules/*",
+    "dist",
+    ".templates", 
+    ".openAPI"
+  ]
 }

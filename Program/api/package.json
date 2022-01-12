@@ -17,8 +17,17 @@
     "upgrade": "npm update --save-dev && npm update --save",
     "test": "jest --forceExit --detectOpenHandles --coverage --verbose"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "node",
+    "nodejs",
+    "typescript",
+    "api", "Swagger", "Continuos deployment", "Unit testing"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/camaral2/ProgNodeJs.git"
+  },
+  "author": "Cristian dos Santos Amaral",
   "license": "ISC",
   "devDependencies": {
     "@types/body-parser": "^1.19.2",
