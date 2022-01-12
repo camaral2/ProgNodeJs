@@ -7,7 +7,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "start": "npm run serve",
+    "start": "node -r dotenv/config build/src/server.js",
     "startdev": "npm run build && npm run serve",
     "serve": "node -r dotenv/config build/src/server.js",
     "build": "npm run clean && npm run build-ts",
