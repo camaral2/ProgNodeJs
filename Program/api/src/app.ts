@@ -33,7 +33,7 @@ app.use('/v1', routesV1);
 //app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // catch 404 and forward to error handler
-app.use((req, res, next) => next(new NotFoundError()));
+//app.use((req, res, next) => next(new NotFoundError()));
 
 // Middleware Error Handler
 /*
