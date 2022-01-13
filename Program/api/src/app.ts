@@ -10,9 +10,9 @@ import './database'; // initialize database
 
 //const swaggerUi = require('swagger-ui-express');
 
-import swaggerUi from 'swagger-ui-express'
+//import swaggerUi from 'swagger-ui-express'
 
-import { swaggerDocument } from './swagger';
+//import { swaggerDocument } from './swagger';
 
 //process.on('uncaughtException', (e) => {
 //  Logger.error(e);
@@ -30,7 +30,7 @@ app.use(bodyParser.urlencoded({ limit: '10mb', extended: true, parameterLimit: 5
 
 // Routes
 app.use('/v1', routesV1);
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+//app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => next(new NotFoundError()));
