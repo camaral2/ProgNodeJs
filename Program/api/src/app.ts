@@ -6,6 +6,7 @@ import { ApiError, InternalError, NotFoundError } from './core/ApiError';
 import routesV1 from './routes/v1';
 import { Logger } from './core/Logger';
 
+
 import './database'; // initialize database
 
 //const swaggerUi = require('swagger-ui-express');
@@ -29,6 +30,12 @@ app.use(bodyParser.urlencoded({ limit: '10mb', extended: true, parameterLimit: 5
 //app.use(cors({ origin: corsUrl, optionsSuccessStatus: 200 }));
 
 // Routes
+app.get('/', (req: Request, res: Response) => {
+  let msg = process.env.npm_package_name + ' - ' + process.env.npm_package_version;
+  res.send(msg);
+}); 
+
+
 app.use('/v1', routesV1);
 //app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
