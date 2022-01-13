@@ -1,3 +1,4 @@
+/*
 import { createLogger, transports, format, level } from 'winston';
 import fs from 'fs';
 import path from 'path';
@@ -58,3 +59,18 @@ export default createLogger({
   ],
   exitOnError: false // do not exit on handled exceptions
 });
+*/
+
+export module Logger {
+  export function info(m: string) {
+    console.log('info:', m);
+  }
+
+  export function error(m: any) {
+    console.log('error:', m);
+  }
+
+  export function debug(m: string, v: any) {
+    console.log('debug:', m, v);
+  }
+}

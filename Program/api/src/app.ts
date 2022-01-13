@@ -4,7 +4,8 @@ import * as bodyParser from "body-parser";
 //import { corsUrl, environment } from './config';
 import { ApiError, InternalError, NotFoundError } from './core/ApiError';
 import routesV1 from './routes/v1';
-import Logger from './core/Logger';
+import { Logger } from './core/Logger';
+
 import './database'; // initialize database
 
 //const swaggerUi = require('swagger-ui-express');

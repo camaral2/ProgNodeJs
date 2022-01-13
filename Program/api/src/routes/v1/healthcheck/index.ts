@@ -1,6 +1,6 @@
 import { Router, Request, Response } from 'express';
 import { SuccessMsgResponse, SuccessResponse, ErrorResponse } from '../../../core/ApiResponse';
-import Logger from '../../../core/Logger';
+import { Logger } from '../../../core/Logger';
 import RoleRepo from '../../../database/repository/RoleRepo';
 
 const router = Router();

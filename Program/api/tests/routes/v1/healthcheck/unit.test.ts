@@ -2,14 +2,13 @@ import supertest from 'supertest';
 import mongoose, { mongo } from 'mongoose';
 
 import app from '../../../../src/app';
-import Logger from '../../../../src/core/Logger';
 
 describe("GET /healthcheck", () => {
   const endpoint = '/v1/healthcheck';  
   const request = supertest(app);
 
   afterAll(() => {
-    Logger.info('Status DB:', mongoose.STATES)
+    console.info('Status DB:', mongoose.STATES)
 
   });
 
@@ -30,7 +29,7 @@ describe("GET /healthcheck with error", () => {
   });
 
   afterAll(() => {
-    Logger.info('Status DB:', mongoose.STATES)
+    console.info('Status DB:', mongoose.STATES)
 
   });
 
