@@ -1,11 +1,11 @@
-import mongoose from 'mongoose';
+//import mongoose from 'mongoose';
 import { Logger } from '../core/Logger';
-import { db } from '../config';
+//import { db } from '../config';
 
 // Build the connection string
-const dbURI = `mongodb://${db.user}:${encodeURIComponent(db.password)}@${db.host}:${db.port}/${
-  db.name
-}`;
+//const dbURI = `mongodb://${db.user}:${encodeURIComponent(db.password)}@${db.host}:${db.port}/${
+//  db.name
+//}`;
 
 const options = {
   useNewUrlParser: true,
@@ -21,7 +21,7 @@ const options = {
 };
 
 
-Logger.debug('dbURI:', dbURI);
+//Logger.debug('dbURI:', dbURI);
 
 // Create the database connection
 /*
@@ -34,7 +34,6 @@ mongoose
     Logger.info('Mongoose connection error');
     Logger.error(e);
   });
-*/
 
 // CONNECTION EVENTS
 // When successfully connected
@@ -59,3 +58,5 @@ process.on('SIGINT', () => {
     process.exit(0);
   });
 });
+
+*/
