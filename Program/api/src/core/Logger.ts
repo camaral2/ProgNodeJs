@@ -70,7 +70,7 @@ export module Logger {
     console.log('error:', m);
   }
 
-  export function debug(m: string, v: any) {
+  export function debug(m: any, v: any) {
     console.log('debug:', m, v);
   }
 }

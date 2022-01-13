@@ -24,6 +24,7 @@ const options = {
 Logger.debug('dbURI:', dbURI);
 
 // Create the database connection
+/*
 mongoose
   .connect(dbURI, options)
   .then(() => {
@@ -33,6 +34,7 @@ mongoose
     Logger.info('Mongoose connection error');
     Logger.error(e);
   });
+*/
 
 // CONNECTION EVENTS
 // When successfully connected
