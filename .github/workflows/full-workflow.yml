@@ -44,12 +44,15 @@ jobs:
 
       - name: Install dependencies
         run: npm install --package-lock-only
+        working-directory: ./Program/api
 
       - name: Build Typescript
         run: npm run build
+        working-directory: ./Program/api
 
       - name: Run all tests
         run: npm test
+        working-directory: ./Program/api
 
       - name: Deploy application
         if: ${{ github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main' }}
