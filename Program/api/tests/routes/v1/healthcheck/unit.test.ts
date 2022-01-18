@@ -19,6 +19,7 @@ describe("GET /healthcheck", () => {
     });
 });
 
+/*
 jest.setTimeout(60000); //one minute
 
 
@@ -42,4 +43,4 @@ describe("GET /healthcheck with error", () => {
     });
 });
 
-
+*/
