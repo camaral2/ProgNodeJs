@@ -43,7 +43,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Install dependencies
-        run: npm install --package-lock-only
+        run: npm ci
         working-directory: ./Program/api
 
       - name: Build Typescript
@@ -51,6 +51,7 @@ jobs:
         working-directory: ./Program/api
 
       - name: Run all tests
+        run: npm i --save-dev @types/jest
         run: npm test
         working-directory: ./Program/api
 
