@@ -51,7 +51,6 @@ jobs:
         working-directory: ./Program/api
 
       - name: Run all tests
-        run: npm i --save-dev @types/jest
         run: npm test
         working-directory: ./Program/api
 
