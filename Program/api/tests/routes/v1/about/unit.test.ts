@@ -6,7 +6,7 @@ describe("GET /about", () => {
   const endpoint = '/v1/about';
   const request = supertest(app);
 
-  beforeAll(async () => {
+  afterAll(async () => {
     await mongoose.disconnect();
   });
 
