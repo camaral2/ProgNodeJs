@@ -3,12 +3,14 @@ import mongoose, { mongo } from 'mongoose';
 
 import app from '../../../../src/app';
 
+jest.setTimeout(60000); //one minute
+
 describe("GET /healthcheck", () => {
   const endpoint = '/v1/healthcheck';  
   const request = supertest(app);
 
   afterAll(() => {
-    console.info('Status DB:', mongoose.STATES)
+    console.info('Status DB:', mongoose.ConnectionStates)
 
   });
 
