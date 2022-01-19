@@ -25,9 +25,9 @@ jobs:
 
     services:
       mongodb:
-        image: mongo:5.0
+        image: mongo
         ports:
-          - 27017
+          - 27017:27017
         options: >-
           --health-cmd mongo
           --health-interval 10s
@@ -53,6 +53,8 @@ jobs:
       - name: Run all tests
         run: npm test
         working-directory: ./Program/api
+        env:
+          CI: true
 
       - name: Deploy application
         if: ${{ github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main' }}
