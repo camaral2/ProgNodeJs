@@ -49,7 +49,12 @@ export const swaggerDocument = {
         {
             url:"http://localhost:3000/v1/",
             description:"Local server"
-        }
+        },
+        {
+            url:"https://app-job1.herokuapp.com/v1/",
+            description:"Production server"
+        },
+
     ],
     paths: {
         "/about": {
