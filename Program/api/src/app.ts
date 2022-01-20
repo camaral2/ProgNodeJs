@@ -1,7 +1,7 @@
 import express, { Request, Response, NextFunction } from 'express';
 import * as bodyParser from "body-parser";
 //import cors from 'cors';
-//import { corsUrl, environment } from './config';
+import { corsUrl, environment } from './config';
 import { ApiError, InternalError, NotFoundError } from './core/ApiError';
 import routesV1 from './routes/v1';
 import { Logger } from './core/Logger';
@@ -9,15 +9,12 @@ import { Logger } from './core/Logger';
 
 import './database'; // initialize database
 
-//const swaggerUi = require('swagger-ui-express');
+import swaggerUi from 'swagger-ui-express'
+import { swaggerDocument } from './swagger';
 
-//import swaggerUi from 'swagger-ui-express'
-
-//import { swaggerDocument } from './swagger';
-
-//process.on('uncaughtException', (e) => {
-//  Logger.error(e);
-//});
+process.on('uncaughtException', (e) => {
+  Logger.error(e);
+});
 
 // Create a new express application instance
 const app = express();
@@ -37,13 +34,12 @@ app.get('/', (req: Request, res: Response) => {
 
 
 app.use('/v1', routesV1);
-//app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // catch 404 and forward to error handler
-//app.use((req, res, next) => next(new NotFoundError()));
+app.use((req, res, next) => next(new NotFoundError()));
 
 // Middleware Error Handler
-/*
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 
   Logger.error(err);
@@ -58,5 +54,5 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
     ApiError.handle(new InternalError(), res);
   }
 });
-*/
+
 export default app;
