@@ -17,7 +17,9 @@ process.on('uncaughtException', (e) => {
 });
 
 // Create a new express application instance
-const app = express();
+let app = express();
+
+app.disable("x-powered-by");
 
 // support application/json type post data
 app.use(bodyParser.json({ limit: '10mb' }));
