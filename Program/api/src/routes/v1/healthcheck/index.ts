@@ -1,7 +1,7 @@
-import { Router, Request, Response } from 'express';
-import { SuccessMsgResponse, SuccessResponse, ErrorResponse } from '../../../core/ApiResponse';
+import { Router } from 'express';
+import { SuccessResponse } from '../../../core/ApiResponse';
 import { Logger } from '../../../core/Logger';
-import RoleRepo from '../../../database/repository/RoleRepo';
+import mongoose from 'mongoose';
 
 const router = Router();
 
@@ -19,8 +19,7 @@ router.get('/', async (_req, res, _next) => {
     };
 
     try {
-        // optional: add further things to check (e.g. connecting to dababase)
-        const role = await RoleRepo.findByCode('22');
+        healthcheck.databaseOK = (mongoose.connection.readyState === 1);
 
     } catch (e) {
         let msgError: string = (e as Error).message
