@@ -1,6 +1,6 @@
 import express, { Request, Response, NextFunction } from 'express';
 import * as bodyParser from "body-parser";
-//import cors from 'cors';
+import cors from 'cors';
 import { corsUrl, environment } from './config';
 import { ApiError, InternalError, NotFoundError } from './core/ApiError';
 import routesV1 from './routes/v1';
@@ -26,7 +26,7 @@ app.use(bodyParser.json({ limit: '10mb' }));
 
 //support application/x-www-form-urlencoded post data
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: true, parameterLimit: 50000 }));
-//app.use(cors({ origin: corsUrl, optionsSuccessStatus: 200 }));
+app.use(cors({ origin: corsUrl, optionsSuccessStatus: 200 }));
 
 // Routes
 app.get('/', (req: Request, res: Response) => {
