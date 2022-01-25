@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import { Logger } from '../core/Logger';
-import { urlMongoDb } from '../config';
+import { urlMongoDb, environment, port } from '../config';
 
 // Build the connection string
 const dbURI = urlMongoDb;
@@ -17,6 +17,10 @@ const options = {
   connectTimeoutMS: 10000, // Give up initial connection after 10 seconds
   socketTimeoutMS: 45000, // Close sockets after 45 seconds of inactivity
 };
+
+Logger.info('Environment:' + environment);
+Logger.info('Port:' + port);
+
 
 // Create the database connection
 mongoose

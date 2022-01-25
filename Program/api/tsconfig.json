@@ -6,14 +6,18 @@
     // Target latest version of ECMAScript.
     "target": "ES2019",
     "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     // Process & infer types from .js files.
     "allowJs": false,
     // Enable strictNullChecks & noImplicitAny.
     "strictNullChecks": true,
     "noImplicitAny": true,
     "strict": true,
-    "strictFunctionTypes": false,
-    "noImplicitThis": false,
+    "strictFunctionTypes": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "removeComments": true,
+    "noImplicitReturns": true,
     // Search under node_modules for non-relative imports.
     "moduleResolution": "node",
     // Import .json files

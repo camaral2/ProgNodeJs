@@ -32,7 +32,7 @@ app.use(cors({ origin: corsUrl, optionsSuccessStatus: 200 }));
 app.get('/', (req: Request, res: Response) => {
   let msg = process.env.npm_package_name + ' - ' + process.env.npm_package_version;
   res.send(msg);
-}); 
+});
 
 
 app.use('/v1', routesV1);
@@ -47,13 +47,14 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   Logger.error(err);
 
   if (err instanceof ApiError) {
-    ApiError.handle(err, res);
+    return ApiError.handle(err, res);
   } else {
     if (environment === 'development' || environment === 'test') {
       Logger.error(err);
       return res.status(500).send(err.message);
     }
-    ApiError.handle(new InternalError(), res);
+
+    return ApiError.handle(new InternalError(), res);
   }
 });
 
