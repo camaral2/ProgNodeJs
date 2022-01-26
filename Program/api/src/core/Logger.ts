@@ -10,7 +10,7 @@ export abstract class Logger {
     if (typeof (m) === 'string')
       msgError = m;
     else
-      msgError = (m as Error).message;
+      msgError = m.message;
 
     console.log('error:', msgError);
   }

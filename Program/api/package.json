@@ -1,6 +1,6 @@
 {
     "name": "api",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "description": "",
     "engines": {
         "node": "12",
@@ -8,6 +8,7 @@
     },
     "scripts": {
         "start": "node ./dist/src/server.js",
+        "start:watch": "ts-node-dev  -r dotenv/config 'src/server.ts'",
         "startdev": "npm run build && npm run serve",
         "serve": "node -r dotenv/config ./dist/src/server.js",
         "build-ts": "npm run clean && npm run build",
@@ -59,6 +60,7 @@
         "supertest": "^6.1.6",
         "ts-jest": "^27.0.7",
         "ts-node": "^10.4.0",
+        "ts-node-dev": "^1.1.8",
         "typescript": "^4.5.2",
         "version-select": "^1.0.13"
     },

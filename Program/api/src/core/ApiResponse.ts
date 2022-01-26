@@ -1,4 +1,5 @@
 import { Response } from 'express';
+import { type } from 'os';
 
 // Helper code for the API consumer to understand the error and handle is accordingly
 enum StatusCode {
@@ -41,8 +42,13 @@ abstract class ApiResponse {
     const clone: T = {} as T;
     Object.assign(clone, response);
 
-    //delete clone.status;
-    for (const i in clone) if (typeof clone[i] === 'undefined') delete clone[i];
+    
+    for (const i in clone) 
+    {
+      if (typeof clone[i] === 'undefined') 
+        delete clone[i];
+    }
+
     return clone;
   }
 }
