@@ -1,6 +1,6 @@
 {
     "name": "api",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "",
     "engines": {
         "node": "12",
@@ -16,7 +16,8 @@
         "clean": "rimraf ./dist",
         "build": "tsc",
         "watch-ts": "tsc -w",
-        "eslint": "eslint . --ext .js,.ts",
+        "eslint": "eslint ./src ./tests --ext .js,.ts",
+        "eslint:fix": "eslint ./src ./tests --ext .js,.ts --fix",
         "upgrade": "npm update --save-dev && npm update --save",
         "test": "jest --forceExit --detectOpenHandles --coverage --verbose",
         "version-select": "version-select"

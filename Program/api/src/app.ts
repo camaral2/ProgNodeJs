@@ -1,4 +1,4 @@
-import express, { Request, Response, NextFunction } from 'express';
+import express, { Request, Response } from 'express';
 import * as bodyParser from "body-parser";
 import cors from 'cors';
 import { corsUrl, environment } from './config';
@@ -17,7 +17,7 @@ process.on('uncaughtException', (e) => {
 });
 
 // Create a new express application instance
-let app = express();
+const app = express();
 
 app.disable("x-powered-by");
 
@@ -28,9 +28,9 @@ app.use(bodyParser.json({ limit: '10mb' }));
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: true, parameterLimit: 50000 }));
 app.use(cors({ origin: corsUrl, optionsSuccessStatus: 200 }));
 
-// Routes
+// Routess
 app.get('/', (req: Request, res: Response) => {
-  let msg = process.env.npm_package_name + ' - ' + process.env.npm_package_version;
+  const msg = process.env.npm_package_name + ' - ' + process.env.npm_package_version;
   res.send(msg);
 });
 
@@ -42,7 +42,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use((req, res, next) => next(new NotFoundError()));
 
 // Middleware Error Handler
-app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+app.use((err: Error, req: Request, res: Response) => {
 
   Logger.error(err);
 

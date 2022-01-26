@@ -1,14 +1,21 @@
 
-export namespace Logger {
-  export function info(m: string) {
+export abstract class Logger {
+
+  public static info(m: string): void {
     console.log('info:', m);
   }
+  public static error(m: string | Error): void {
+    let msgError: string;
 
-  export function error(m: any) {
-    console.log('error:', m);
+    if (typeof (m) === 'string')
+      msgError = m;
+    else
+      msgError = (m as Error).message;
+
+    console.log('error:', msgError);
   }
-
-  export function debug(m: any, v: any) {
+  public static debug(m: string, v: string): void {
     console.log('debug:', m, v);
   }
+
 }

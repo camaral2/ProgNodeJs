@@ -10,7 +10,7 @@ const router = Router();
 //router.use('/', authentication);
 /*-------------------------------------------------------------------------*/
 
-router.get('/', async (_req, res, _next) => {
+router.get('/', async (_req, res) => {
     const healthcheck = {
         uptime: process.uptime(),
         message: 'OK',
@@ -22,11 +22,11 @@ router.get('/', async (_req, res, _next) => {
         healthcheck.databaseOK = (mongoose.connection.readyState === 1);
 
     } catch (e) {
-        let msgError: string = (e as Error).message
+        const msgError: string = (e as Error).message
         healthcheck.message = msgError;
         healthcheck.databaseOK = false;
 
-        Logger.error(e);
+        Logger.error(msgError);
     }
 
     new SuccessResponse(healthcheck.message , {

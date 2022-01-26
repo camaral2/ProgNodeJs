@@ -4,7 +4,7 @@ import { SuccessMsgResponse } from '../../../core/ApiResponse';
 const router = Router();
 
 router.get('/', (req: Request, res: Response) => {
-    let msg = process.env.npm_package_name + ' - ' + process.env.npm_package_version;
+    const msg = process.env.npm_package_name + ' - ' + process.env.npm_package_version;
 
     new SuccessMsgResponse(msg).send(res);
 }); 
