@@ -11,6 +11,6 @@ const router = express.Router();
 /*-------------------------------------------------------------------------*/
 
 router.use('/about', about);
-router.use('/healthcheck', healthcheck)
+router.use('/healthcheck', healthcheck);
 
 export default router;

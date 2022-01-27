@@ -3,7 +3,6 @@ export const environment = process.env.NODE_ENV;
 export const port = process.env.PORT || 4000;
 export const urlMongoDb = String(process.env.MONGODB_URL || '');
 
-
 export const corsUrl = process.env.CORS_URL;
 
 //export const tokenInfo = {

@@ -1,5 +1,4 @@
 import { Response } from 'express';
-import { type } from 'os';
 
 // Helper code for the API consumer to understand the error and handle is accordingly
 enum StatusCode {
@@ -20,17 +19,20 @@ enum ResponseStatus {
 
 module.exports.EReviewStatus = {
   PENDING: 200,
-  SENT: 300
-}
+  SENT: 300,
+};
 
 abstract class ApiResponse {
   constructor(
     protected statusCode: StatusCode,
     protected status: ResponseStatus,
-    protected message: string,
+    protected message: string
   ) {}
 
-  protected prepare<T extends ApiResponse>(res: Response, response: T): Response {
+  protected prepare<T extends ApiResponse>(
+    res: Response,
+    response: T
+  ): Response {
     return res.status(this.status).json(ApiResponse.sanitize(response));
   }
 
@@ -42,11 +44,8 @@ abstract class ApiResponse {
     const clone: T = {} as T;
     Object.assign(clone, response);
 
-    
-    for (const i in clone) 
-    {
-      if (typeof clone[i] === 'undefined') 
-        delete clone[i];
+    for (const i in clone) {
+      if (typeof clone[i] === 'undefined') delete clone[i];
     }
 
     return clone;
@@ -126,7 +125,11 @@ export class AccessTokenErrorResponse extends ApiResponse {
   private instruction = 'refresh_token';
 
   constructor(message = 'Access token invalid') {
-    super(StatusCode.INVALID_ACCESS_TOKEN, ResponseStatus.UNAUTHORIZED, message);
+    super(
+      StatusCode.INVALID_ACCESS_TOKEN,
+      ResponseStatus.UNAUTHORIZED,
+      message
+    );
   }
 
   send(res: Response): Response {
@@ -136,7 +139,11 @@ export class AccessTokenErrorResponse extends ApiResponse {
 }
 
 export class TokenRefreshResponse extends ApiResponse {
-  constructor(message: string, private accessToken: string, private refreshToken: string) {
+  constructor(
+    message: string,
+    private accessToken: string,
+    private refreshToken: string
+  ) {
     super(StatusCode.SUCCESS, ResponseStatus.SUCCESS, message);
   }
 

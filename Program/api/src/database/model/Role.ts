@@ -22,7 +22,12 @@ const schema = new Schema(
     code: {
       type: Schema.Types.String,
       required: true,
-      enum: [RoleCode.LEARNER, RoleCode.WRITER, RoleCode.EDITOR, RoleCode.ADMIN],
+      enum: [
+        RoleCode.LEARNER,
+        RoleCode.WRITER,
+        RoleCode.EDITOR,
+        RoleCode.ADMIN,
+      ],
     },
     status: {
       type: Schema.Types.Boolean,
@@ -41,7 +46,7 @@ const schema = new Schema(
   },
   {
     versionKey: false,
-  },
+  }
 );
 
 export const RoleModel = model<Role>(DOCUMENT_NAME, schema, COLLECTION_NAME);

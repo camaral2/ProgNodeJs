@@ -1,5 +1,7 @@
 module.exports = {
     verbose: true,
+    displayName: 'root-test',
+    clearMocks: true,
     preset: 'ts-jest',
     testEnvironment: 'node',
     roots: ['<rootDir>/tests'],

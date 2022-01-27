@@ -11,28 +11,26 @@ const router = Router();
 /*-------------------------------------------------------------------------*/
 
 router.get('/', async (_req, res) => {
-    const healthcheck = {
-        uptime: process.uptime(),
-        message: 'OK',
-        timestamp: new Date(new Date().toUTCString()),
-        databaseOK: true
-    };
+  const healthcheck = {
+    uptime: process.uptime(),
+    message: 'OK',
+    timestamp: new Date(new Date().toUTCString()),
+    databaseOK: true,
+  };
 
-    try {
-        healthcheck.databaseOK = (mongoose.connection.readyState === 1);
+  try {
+    healthcheck.databaseOK = mongoose.connection.readyState === 1;
+  } catch (e) {
+    const msgError: string = (e as Error).message;
+    healthcheck.message = msgError;
+    healthcheck.databaseOK = false;
 
-    } catch (e) {
-        const msgError: string = (e as Error).message
-        healthcheck.message = msgError;
-        healthcheck.databaseOK = false;
+    Logger.error(msgError);
+  }
 
-        Logger.error(msgError);
-    }
-
-    new SuccessResponse(healthcheck.message , {
-        healthcheck: healthcheck,
-    }).send(res);
-
+  new SuccessResponse(healthcheck.message, {
+    healthcheck: healthcheck,
+  }).send(res);
 });
 
 export default router;
